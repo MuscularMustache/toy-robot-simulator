@@ -5,9 +5,16 @@
   </header>
 
   <div class="sim-wrapper">
-    <Controls @placeRobot={{this.placeRobot}} @move={{this.move}} @turn={{this.turn}} @report={{this.report}}
+    <Controls 
+      @placeRobot={{this.placeRobot}} 
+      @move={{this.move}} 
+      @turn={{this.turn}} 
+      @report={{this.report}}
       @location={{this.location}} />
-    <Table @location={{this.location}} @isPlaced={{this.isPlaced}} />
+    
+    <Table 
+      @location={{this.location}} 
+      @isPlaced={{this.isPlaced}} />
   </div>
 
   {{outlet}}

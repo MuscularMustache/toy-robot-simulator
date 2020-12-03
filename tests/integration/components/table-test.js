@@ -3,24 +3,28 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | table', function(hooks) {
+module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test('table initializes with 5 rows with 5 cells and no robot', async function (assert) {
     await render(hbs`<Table />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.querySelectorAll('.robot-image').length, 0);
+    assert.equal(this.element.querySelectorAll('.row').length, 5);
+    assert.equal(this.element.querySelectorAll('.cell').length, 25);
+    assert.equal(
+      this.element.querySelectorAll('.row:first-child .cell').length,
+      5
+    );
+  });
 
-    // Template block usage:
-    await render(hbs`
-      <Table>
-        template block text
-      </Table>
-    `);
+  test('Robot appears and is properly set if its been placed', async function (assert) {
+    this.set('location', { x: 0, y: 2, direction: 2 });
+    await render(hbs`<Table @isPlaced=true @location={{this.location}}  />`);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(
+      this.element.querySelectorAll('.robot-image.x-0.y-2.direction-2').length,
+      1
+    );
   });
 });

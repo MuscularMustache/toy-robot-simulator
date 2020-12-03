@@ -22,15 +22,15 @@
     </select>
   </p>
 
-  <button type="button" {{on "click" (fn @placeRobot this.initLocation)}}>add troy</button>
+  <button type="button" data-test="add-robot" {{on "click" (fn @placeRobot this.initLocation)}}>add troy</button>
 
-  <button type="button" {{on "click" @move}}>move 1 space</button>
+  <button type="button" data-test="move-robot" {{on "click" @move}}>move 1 space</button>
 
-  <button type="button" {{on "click" (fn @turn "left")}}>turn left</button>
+  <button type="button" data-test="turn-left" {{on "click" (fn @turn "left")}}>turn left</button>
 
-  <button type="button" {{on "click" (fn @turn "right")}}>turn right</button>
+  <button type="button" data-test="turn-right" {{on "click" (fn @turn "right")}}>turn right</button>
 
-  <button type="button" {{on "click" @report}}>report</button>
+  <button type="button" data-test="show-report" {{on "click" @report}}>show report</button>
 
   {{#if @location.showReport}}
   <p>
