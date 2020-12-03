@@ -49,12 +49,21 @@ export default class ApplicationController extends Controller {
       this.location.x = x - 1;
     }
 
+    // NOTE: this is in here to make sure the tracked location obj is updated
     this.location = this.location;
   }
 
   @action
-  turn(direction) {
-    console.log(`turn ${direction}`);
+  turn(turnDirection) {
+    const direction = parseInt(this.location.direction);
+    if (turnDirection === 'left') {
+      this.location.direction = direction - 1 < 1 ? 4 : direction - 1;
+    } else if (turnDirection === 'right') {
+      this.location.direction = direction + 1 > 4 ? 1 : direction + 1;
+    }
+
+    // NOTE: this is in here to make sure the tracked location obj is updated
+    this.location = this.location;
   }
 
   @action
