@@ -1,15 +1,17 @@
 <section>
 
-  <p>
-    <label for="xcoord">x</label>
-    <input id="xcoord" type="number" min="0" max="4" placeholder="0 - 4"
-      {{on "change" (fn this.setPlaceLocation "x")}} />
-  </p>
-  <p>
-    <label for="ycoord">y</label>
-    <input id="ycoord" type="number" min="0" max="4" placeholder="0 - 4"
-      {{on "change" (fn this.setPlaceLocation "y")}} />
-  </p>
+  <div class="coords">
+    <p>
+      <label for="xcoord">x</label>
+      <input id="xcoord" type="number" min="0" max="4" placeholder="0 - 4"
+        {{on "change" (fn this.setPlaceLocation "x")}} />
+    </p>
+    <p>
+      <label for="ycoord">y</label>
+      <input id="ycoord" type="number" min="0" max="4" placeholder="0 - 4"
+        {{on "change" (fn this.setPlaceLocation "y")}} />
+    </p>
+  </div>
 
   <p>
     <label for="direction">facing direction</label>
@@ -22,7 +24,9 @@
     </select>
   </p>
 
-  <button type="button" data-test="add-robot" {{on "click" (fn @placeRobot this.initLocation)}}>add troy</button>
+
+  <button type="button" class="add-robot" data-test="add-robot" {{on "click" (fn @placeRobot this.initLocation)}}>add
+    troy</button>
 
   <button type="button" data-test="move-robot" {{on "click" @move}}>move 1 space</button>
 

@@ -1,5 +1,11 @@
 # toy-robot-simulator
 
+A simple toy robot simulator that controls Troy the toy robot around the gridded table.
+
+Takes a number 0-4 on the x and y planes and a direction that it faces
+
+----
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
