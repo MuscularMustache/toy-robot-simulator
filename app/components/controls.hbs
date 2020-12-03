@@ -1,3 +1,37 @@
-<h3>Control</h3>
+<section>
+
+  <p>
+    <label for="xcoord">x</label>
+    <input id="xcoord" type="number" min="0" max="4" placeholder="0 - 4"
+      {{on "change" (fn this.setPlaceLocation "x")}} />
+  </p>
+  <p>
+    <label for="ycoord">y</label>
+    <input id="ycoord" type="number" min="0" max="4" placeholder="0 - 4"
+      {{on "change" (fn this.setPlaceLocation "y")}} />
+  </p>
+
+  <p>
+    <label for="direction">facing direction</label>
+    <select name="direction" id="direction" {{on "change" (fn this.setPlaceLocation "direction")}}>
+      <option value="">Choose facing direction</option>
+      <option value="1">north</option>
+      <option value="2">east</option>
+      <option value="3">south</option>
+      <option value="4">west</option>
+    </select>
+  </p>
+
+  <button type="button" {{on "click" (fn @placeRobot this.location)}}>add troy</button>
+
+  <button type="button" {{on "click" @move}}>move 1 space</button>
+
+  <button type="button" {{on "click" (fn @turn "left")}}>turn left</button>
+
+  <button type="button" {{on "click" (fn @turn "right")}}>turn right</button>
+
+  <button type="button" {{on "click" @report}}>report</button>
+
+</section>
 
 {{yield}}
