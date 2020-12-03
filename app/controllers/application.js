@@ -30,7 +30,26 @@ export default class ApplicationController extends Controller {
 
   @action
   move() {
-    console.log('move');
+    const x = parseInt(this.location.x);
+    const y = parseInt(this.location.y);
+    const direction = parseInt(this.location.direction);
+
+    // Direction 1-North 2-South 3-East 4-West
+    if (direction === 1 && y != 4) {
+      // move north until table edge
+      this.location.y = y + 1;
+    } else if (direction === 2 && x != 4) {
+      // move east until table edge
+      this.location.x = x + 1;
+    } else if (direction === 3 && y != 0) {
+      // move south until table edge
+      this.location.y = y - 1;
+    } else if (direction === 4 && x != 0) {
+      // move west until table edge
+      this.location.x = x - 1;
+    }
+
+    this.location = this.location;
   }
 
   @action
