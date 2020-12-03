@@ -19,7 +19,8 @@ export default class ApplicationController extends Controller {
       direction <= 4
     ) {
       // placement is valid
-      this.location = location;
+      // NOTE make sure direction is a number, this is for report checking
+      this.location = { x, y, direction: parseInt(direction) };
       this.isPlaced = true;
     } else {
       // placement is invalid valid
@@ -68,6 +69,6 @@ export default class ApplicationController extends Controller {
 
   @action
   report() {
-    console.log('report');
+    this.location = { showReport: true, ...this.location };
   }
 }

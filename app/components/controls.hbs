@@ -22,7 +22,7 @@
     </select>
   </p>
 
-  <button type="button" {{on "click" (fn @placeRobot this.location)}}>add troy</button>
+  <button type="button" {{on "click" (fn @placeRobot this.initLocation)}}>add troy</button>
 
   <button type="button" {{on "click" @move}}>move 1 space</button>
 
@@ -32,6 +32,19 @@
 
   <button type="button" {{on "click" @report}}>report</button>
 
+  {{#if @location.showReport}}
+  <p>
+    <span>x: {{@location.x}}</span>
+    <span>y: {{@location.y}}</span>
+    <span>
+      direction:
+      {{#if (eq @location.direction 1) }}NORTH{{/if}}
+      {{#if (eq @location.direction 2) }}EAST{{/if}}
+      {{#if (eq @location.direction 3) }}SOUTH{{/if}}
+      {{#if (eq @location.direction 4) }}WEST{{/if}}
+    </span>
+  </p>
+  {{/if}}
 </section>
 
 {{yield}}
